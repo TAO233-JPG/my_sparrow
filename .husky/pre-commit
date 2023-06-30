@@ -2,5 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 cd ./sparrow
 
-pnpm lint
-pnpm test
+npx lint-staged
