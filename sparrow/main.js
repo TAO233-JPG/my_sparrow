@@ -1,5 +1,4 @@
 import "./style.css";
+import drawRedRect from "./src/drawRedRect";
 
-document.querySelector("#app").innerHTML = `
-
-`;
+drawRedRect(document.querySelector("#svg"));
