@@ -15,5 +15,11 @@ module.exports = {
     quotes: ["error", "double", { allowTemplateLiterals: true }],
     "import/prefer-default-export": 0,
     "import/extensions": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: ["**/*.config.js"],
+      },
+    ],
   },
 };
