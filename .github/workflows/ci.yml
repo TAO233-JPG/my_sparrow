@@ -1,4 +1,4 @@
- name: ci
+name: ci
 
 on: [push, pull_request]
 
@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: "12"
+          node-version: "14"
 
       - name: Cache node modules
         uses: actions/cache@v2
@@ -26,5 +26,6 @@ jobs:
             cache-node-modules-
       - name: Run ci
         run: |
+          cd sparrow
           npm install
           npm run ci
