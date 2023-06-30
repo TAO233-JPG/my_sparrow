@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>条形图 by SVG</title>
+  </head>
+  <body>
+    <svg id="container"></svg>
+
+    <script>
+      // 数据处理
+      const data = [
+        { name: "questions", value: 17 },
+        { name: "schools", value: 25 },
+        { name: "philosophers", value: 35 },
+      ];
+
+      // 图表宽高
+      const chartWidth = 400;
+      const chartHeight = 400;
+      const margin = 15;
+      const containerWidth = chartWidth + margin * 2;
+      const containerHeight = chartHeight + margin * 2;
+
+      // 获取对应的数据
+      const names = Array.from(data, (v) => v.name);
+      const values = Array.from(data, (v) => v.value);
+      const indices = Array.from(data, (_, i) => i);
+
+      const step = chartHeight / data.length;
+      const barWidth = step * 0.8; // 每个条柱的宽度
+      const xs = Array.from(indices, (i) => i * step);
+      const y = chartHeight;
+      // 映射
+      // 高度
+      const hMax = Math.max(...values);
+      const barHeights = Array.from(values, (h) => (chartHeight * h) / hMax);
+      // 颜色
+      const nameColor = {
+        questions: "#5B8FF9",
+        philosophers: "#61DDAA",
+        schools: "#65789B",
+      };
+      const colors = Array.from(names, (name) => nameColor[name]);
+
+      const container = document.getElementById("container");
+      container.setAttribute("width", containerWidth);
+      container.setAttribute("height", containerHeight);
+      container.setAttribute("viewBox", [
+        0,
+        0,
+        containerWidth,
+        containerHeight,
+      ]);
+
+      const g = createSVGElement("g");
+      g.setAttribute("transform", `translate(${margin}, ${margin})`);
+      for (const idx of indices) {
+        const color = colors[idx];
+        const name = names[idx];
+        const height = barHeights[idx];
+        const x = xs[idx];
+
+        const rect = createSVGElement("rect");
+        // 绘制条
+        rect.setAttribute("fill", color);
+        rect.setAttribute("x", x);
+        rect.setAttribute("y", y - height);
+        rect.setAttribute("width", barWidth);
+        rect.setAttribute("height", height);
+
+        g.appendChild(rect);
+        // 绘制值
+        const text = createSVGElement("text");
+        text.textContent = name;
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("alignment-baseline", "middle");
+        text.setAttribute("fill", "#fff");
+        text.setAttribute("font-family", "PingFangSC-Regular, sans-serif");
+        text.setAttribute("font-size", 16);
+        text.setAttribute("x", x + barWidth / 2);
+        text.setAttribute("y", y - height / 2);
+
+        g.appendChild(text);
+      }
+      container.appendChild(g);
+
+      function createSVGElement(type) {
+        return document.createElementNS("http://www.w3.org/2000/svg", type);
+      }
+    </script>
+  </body>
+</html>

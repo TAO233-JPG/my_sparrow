@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>条形图</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+      // 数据处理
+      const data = [
+        { name: "questions", value: 17 },
+        { name: "schools", value: 25 },
+        { name: "philosophers", value: 35 },
+      ];
+
+      // 图表宽高
+      const chartWidth = 400;
+      const chartHeight = 400;
+      const margin = 15;
+      const containerWidth = chartWidth + margin * 2;
+      const containerHeight = chartHeight + margin * 2;
+
+      // 获取对应的数据
+      const names = Array.from(data, (v) => v.name);
+      const values = Array.from(data, (v) => v.value);
+      const indices = Array.from(data, (_, i) => i);
+
+      const step = chartHeight / data.length;
+      const barWidth = step * 0.8; // 每个条柱的宽度
+      const xs = Array.from(indices, (i) => i * step);
+      const y = chartHeight;
+      // 映射
+      // 高度
+      const hMax = Math.max(...values);
+      const barHeights = Array.from(values, (h) => (chartHeight * h) / hMax);
+      // 颜色
+      const nameColor = {
+        questions: "#5B8FF9",
+        philosophers: "#61DDAA",
+        schools: "#65789B",
+      };
+      const colors = Array.from(names, (name) => nameColor[name]);
+
+      const canvas = document.getElementById("canvas");
+
+      // 设置 canvas 的样式宽高
+      // 样式宽高决定了 canvas 在画布上呈现的大小
+      canvas.style.width = containerWidth + "px";
+      canvas.style.height = containerHeight + "px";
+
+      // 下面把画布宽高设置为样式宽高的两倍主要是为了解决模糊问题
+      // 这个地方就不详细展开了，感兴趣的可以自行查阅
+      canvas.width = containerWidth * 2;
+      canvas.height = containerHeight * 2;
+
+      const context = canvas.getContext("2d");
+      context.scale(2, 2); // 抵消将画布宽高设置为样式宽高两倍的影响
+      context.translate(margin, margin);
+      for (const idx of indices) {
+        const color = colors[idx];
+        const name = names[idx];
+        const height = barHeights[idx];
+        const x = xs[idx];
+
+        // 绘制条
+        context.fillStyle = color;
+        context.fillRect(x, y - height, barWidth, height);
+        // 绘制值
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.fillStyle = "white";
+        context.font = "16px PingFangSC-Regular, sans-serif";
+        context.fillText(name, x + barWidth / 2, y - height / 2);
+      }
+    </script>
+  </body>
+</html>
