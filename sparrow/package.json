@@ -7,6 +7,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --fix",
+
+
+
+    dddw
     "test": "jest --coverage",
     "test-live": "cross-env DEBUG_MODE=1 jest --coverage"
   },
