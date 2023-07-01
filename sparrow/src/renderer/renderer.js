@@ -1,6 +1,6 @@
 import { createContext } from "./context";
 import { line, rect, circle, text, path, ring } from "./shape";
-
+import { restore, save, scale, rotate, translate } from "./transform";
 /**
  * 创建渲染器
  * @param {number} width
@@ -17,11 +17,11 @@ export default function createRenderer(width, height) {
     text: (attributes) => text(context, attributes),
     path: (attributes) => path(context, attributes),
     ring: (attributes) => ring(context, attributes), // 绘制圆环
-    // restore: () => restore(context),
-    // save: () => save(context),
-    // scale: (...args) => scale(context, ...args),
-    // rotate: (...args) => rotate(context, ...args),
-    // translate: (...args) => translate(context, ...args),
+    restore: () => restore(context),
+    save: () => save(context),
+    scale: (...args) => scale(context, ...args),
+    rotate: (...args) => rotate(context, ...args),
+    translate: (...args) => translate(context, ...args),
     node: () => context.node,
     group: () => context.group,
   };
