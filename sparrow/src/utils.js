@@ -17,3 +17,14 @@ export function mount(parent, child) {
     parent.appendChild(child);
   }
 }
+/**
+ * 绑定attribute
+ * @param {Element} el
+ * @param {object} attributes
+ */
+export function applyAttributes(el, attributes) {
+  for (const [key, val] of Object.entries(attributes)) {
+    const k = key.replace(/[A-Z]/g, (d) => `-${d.toLocaleLowerCase()}`);
+    el.setAttribute(k, val);
+  }
+}
