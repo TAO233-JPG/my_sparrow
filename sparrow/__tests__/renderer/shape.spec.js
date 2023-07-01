@@ -1,5 +1,5 @@
-import createRenderer from "../../src/render/index";
-import { shape } from "../../src/render/shape";
+import createRenderer from "../../src/renderer/index";
+import { shape } from "../../src/renderer/shape";
 import { createDiv, getAttributes, mount } from "../utils";
 
 describe("shapes", () => {

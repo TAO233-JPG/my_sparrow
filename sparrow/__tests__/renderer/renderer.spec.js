@@ -1,4 +1,4 @@
-import createRenderer from "../../src/render";
+import createRenderer from "../../src/renderer";
 import { createDiv, mount } from "../utils";
 
 describe("createRenderer", () => {
