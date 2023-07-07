@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --fix",
+    "test:staged": "jest  -o --coverage",
     "test": "jest --coverage",
     "test-live": "cross-env DEBUG_MODE=1 jest --coverage",
     "ci": "run-s lint test build"
