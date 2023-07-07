@@ -8,7 +8,7 @@ import createOrdinal from "./ordinal";
 import createBand from "./band";
 import createPoint from "./point";
 
-export default {
+export {
   createBand,
   createIdentity,
   createLinear,
