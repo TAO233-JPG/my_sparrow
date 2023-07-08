@@ -31,5 +31,8 @@ module.exports = {
     "no-nested-ternary": 0,
     "object-curly-newline": 0,
     "comma-dangle": 0,
+    "implicit-arrow-linebreak": 0,
+    "function-paren-newline": 0,
+    "no-bitwise": 0,
   },
 };
