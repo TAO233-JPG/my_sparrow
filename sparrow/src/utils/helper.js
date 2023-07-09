@@ -19,3 +19,22 @@ export function curry(fn) {
     return curried.bind(null, ...newArgs);
   };
 }
+
+/**
+ *
+ * @param {T[]} data
+ */
+export function group(data, key = (d) => d) {
+  const map = new Map();
+
+  for (const item of data) {
+    const k = key(item);
+
+    if (map.has(k)) {
+      map.get(k).push(item);
+    } else {
+      map.set(k, [item]);
+    }
+  }
+  return map;
+}

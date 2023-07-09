@@ -1,4 +1,4 @@
-// src/geometry/shape.js
+import { line as pathLine } from "./d";
 
 // 绘制不同坐标系下面的圆
 // 绘制圆的函数和渲染器里面绘制圆的区别在于
@@ -23,4 +23,12 @@ export function link(renderer, coordinate, { x1, y1, x2, y2, ...styles }) {
   [x1, y1] = coordinate([x1, y1]);
   [x2, y2] = coordinate([x2, y2]);
   return renderer.line({ x1, x2, y1, y2, ...styles });
+}
+
+export function line(renderer, coordinate, { X, Y, I: I0, ...styles }) {
+  // 在极坐标系下这条线需要闭合，所以需要将第一个点加入到最后。
+  const I = coordinate.isPolar() ? [...I0, I0[0]] : I0;
+  const points = I.map((i) => coordinate([X[i], Y[i]]));
+  const d = pathLine(points);
+  return renderer.path({ d, ...styles });
 }
