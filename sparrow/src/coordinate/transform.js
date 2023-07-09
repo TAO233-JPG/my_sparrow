@@ -54,7 +54,7 @@ export function transpose() {
  * @returns
  */
 export function polar() {
-  return transform("polar", ([radius, theta]) => [
+  return transform("polar", ([theta, radius]) => [
     Math.cos(theta) * radius,
     Math.sin(theta) * radius,
   ]);
