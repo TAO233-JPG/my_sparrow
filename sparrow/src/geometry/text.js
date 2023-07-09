@@ -1,6 +1,7 @@
 import { createChannel, createChannels } from "./channel";
 import { createGemetry } from "./geometry";
 import { channelStyles } from "./style";
+import { text as shapeText } from "./shape";
 
 /**
  *
@@ -19,10 +20,9 @@ function textRender(renderer, I, scales, values, directStyles, coordinate) {
   };
 
   const { x: X, y: Y, text: T, rotate: R = [], fontSize: FS = [] } = values;
-
   return Array.from(I, (i) => {
     const { r: dr, ...restDefaults } = defaults;
-    return text(renderer, coordinate, {
+    return shapeText(renderer, coordinate, {
       ...restDefaults,
       ...directStyles,
       ...channelStyles(i, values),
