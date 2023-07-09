@@ -18,3 +18,9 @@ export function text(renderer, coordinate, { x, y, rotate, text, ...styles }) {
   renderer.restore();
   return textElement;
 }
+
+export function link(renderer, coordinate, { x1, y1, x2, y2, ...styles }) {
+  [x1, y1] = coordinate([x1, y1]);
+  [x2, y2] = coordinate([x2, y2]);
+  return renderer.line({ x1, x2, y1, y2, ...styles });
+}
