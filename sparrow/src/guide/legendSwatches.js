@@ -11,7 +11,7 @@ export function legendSwatches(
     x,
     y,
     width = 48,
-    marginLeft = 12,
+    marginLeft = 8,
     swatchSize = 10,
     fontSize = 10,
     formatter = identity,
