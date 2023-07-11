@@ -7,6 +7,7 @@ import createTime from "./time";
 import createOrdinal from "./ordinal";
 import createBand from "./band";
 import createPoint from "./point";
+import { interpolateColor, interpolateNumber } from "./interpolate";
 
 export {
   createBand,
@@ -18,4 +19,6 @@ export {
   createQuantize,
   createTime,
   createThreshold,
+  interpolateColor,
+  interpolateNumber,
 };
