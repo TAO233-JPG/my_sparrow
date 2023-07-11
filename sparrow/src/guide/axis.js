@@ -39,8 +39,6 @@ export function createAxis(components) {
       end,
     } = components[type];
 
-    console.log(type, "type");
-
     // 计算得到刻度真正的坐标和展示的文本
     const ticks = values.map((d) => {
       const [x, y] = coordinate(start(d, scale, offset));
@@ -58,8 +56,6 @@ export function createAxis(components) {
     // 按需绘制格子、刻度和标签
     if (grid && RenderGrid) RenderGrid(renderer, ticks, end(coordinate));
     if (tick && RendererTicks) {
-      console.log("tick && RendererTicks\n", tick, RendererTicks);
-
       RendererTicks(renderer, ticks, options);
     }
     if (label && RendererLabel) {

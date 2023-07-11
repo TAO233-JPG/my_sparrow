@@ -78,7 +78,6 @@ export function ticksCircular(
   ticks,
   { tickLength, fontSize, center }
 ) {
-  console.log("ticksCircular runing", ticks, unique(ticks));
   for (const { x, y, text } of unique(
     ticks,
     (d) => d.x,
