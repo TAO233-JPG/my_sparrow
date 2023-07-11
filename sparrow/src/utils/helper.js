@@ -42,3 +42,41 @@ export function group(data, key = (d) => d) {
 export function lastOf(arr) {
   return arr[arr.length - 1];
 }
+
+export function firstOf(array) {
+  return array[0];
+}
+export function min(array, accessor) {
+  return Math.min(...array.map(accessor));
+}
+
+export function max(array, accessor) {
+  return Math.max(...array.map(accessor));
+}
+
+export function bisect(
+  array,
+  x,
+  lo = 0,
+  hi = array.length,
+  accessor = identity
+) {
+  let i = lo;
+  let j = hi;
+  while (i < j) {
+    const mid = (i + j) >>> 1;
+    if (accessor(array[mid]) < x) {
+      i = mid + 1;
+    } else {
+      j = mid;
+    }
+  }
+  return i;
+}
+
+export function floor(n, base) {
+  return base * Math.floor(n / base);
+}
+export function ceil(n, base) {
+  return base * Math.ceil(n / base);
+}
