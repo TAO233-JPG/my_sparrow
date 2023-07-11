@@ -34,5 +34,6 @@ module.exports = {
     "implicit-arrow-linebreak": 0,
     "function-paren-newline": 0,
     "no-bitwise": 0,
+    radix: 0,
   },
 };
