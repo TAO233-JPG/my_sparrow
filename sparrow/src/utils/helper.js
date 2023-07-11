@@ -38,3 +38,7 @@ export function group(data, key = (d) => d) {
   }
   return map;
 }
+
+export function lastOf(arr) {
+  return arr[arr.length - 1];
+}
