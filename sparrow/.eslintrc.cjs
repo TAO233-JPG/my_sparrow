@@ -35,5 +35,6 @@ module.exports = {
     "function-paren-newline": 0,
     "no-bitwise": 0,
     radix: 0,
+    "operator-linebreak": 0,
   },
 };
