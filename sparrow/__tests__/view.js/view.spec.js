@@ -11,70 +11,70 @@ function renderViews(views, width = 640, height = 480) {
 }
 
 describe("createViews", () => {
-  // test("basic container", () => {
-  //   const views = createViews({});
-  //   renderViews(views);
+  test("basic container", () => {
+    const views = createViews({});
+    renderViews(views);
 
-  //   expect(views.length).toBe(1);
-  //   const [[view, [node]]] = views;
-  //   expect(view).toEqual({ x: 0, y: 0, width: 640, height: 480 });
-  //   expect(node).toEqual({});
-  // });
+    expect(views.length).toBe(1);
+    const [[view, [node]]] = views;
+    expect(view).toEqual({ x: 0, y: 0, width: 640, height: 480 });
+    expect(node).toEqual({});
+  });
 
-  // test("layer container", () => {
-  //   const views = createViews({
-  //     type: "layer",
-  //     children: [{}, {}],
-  //   });
-  //   renderViews(views);
+  test("layer container", () => {
+    const views = createViews({
+      type: "layer",
+      children: [{}, {}],
+    });
+    renderViews(views);
 
-  //   expect(views.length).toBe(1);
-  //   const [[view, nodes]] = views;
-  //   expect(view).toEqual({ x: 0, y: 0, width: 640, height: 480 });
-  //   expect(nodes.length).toBe(3);
-  // });
+    expect(views.length).toBe(1);
+    const [[view, nodes]] = views;
+    expect(view).toEqual({ x: 0, y: 0, width: 640, height: 480 });
+    expect(nodes.length).toBe(3);
+  });
 
-  // test("row container", () => {
-  //   const views = createViews({
-  //     type: "row",
-  //     children: [{}, {}],
-  //   });
-  //   renderViews(views);
-  //   expect(views.length).toBe(3);
+  test("row container", () => {
+    const views = createViews({
+      type: "row",
+      children: [{}, {}],
+    });
+    renderViews(views);
+    expect(views.length).toBe(3);
 
-  //   const [, [view, [node]]] = views;
-  //   expect(view).toEqual({ height: 480, width: 300, x: 0, y: 0 });
-  //   expect(node).toEqual({});
-  // });
+    const [, [view, [node]]] = views;
+    expect(view).toEqual({ height: 480, width: 300, x: 0, y: 0 });
+    expect(node).toEqual({});
+  });
 
-  // test("col container", () => {
-  //   const views = createViews({
-  //     type: "col",
-  //     padding: 20,
-  //     flex: [1, 2, 1],
-  //     children: [{}, {}, {}],
-  //   });
-  //   renderViews(views);
+  test("col container", () => {
+    const views = createViews({
+      type: "col",
+      padding: 20,
+      flex: [1, 2, 1],
+      children: [{}, {}, {}],
+    });
+    renderViews(views);
 
-  //   expect(views.length).toBe(4);
+    expect(views.length).toBe(4);
 
-  //   const [, [view, [node]]] = views;
-  //   expect(view).toEqual({ height: 110, width: 640, x: 0, y: 0 });
-  //   expect(node).toEqual({});
-  // });
+    const [, [view, [node]]] = views;
+    expect(view).toEqual({ height: 110, width: 640, x: 0, y: 0 });
+    expect(node).toEqual({});
+  });
 
-  // test("flex container", () => {
-  //   const views = createViews({
-  //     type: "row",
-  //     children: [{}, { type: "col", children: [{}, {}] }],
-  //   });
-  //   renderViews(views);
+  test("flex container", () => {
+    const views = createViews({
+      type: "row",
+      children: [{}, { type: "col", children: [{}, {}] }],
+    });
+    renderViews(views);
 
-  //   expect(views.length).toBe(5);
-  //   const [, , , [view, [node]]] = views;
-  //   expect(view).toEqual({ height: 220, width: 300, x: 340, y: 0 });
-  //   expect(node).toEqual({});
-  // });
+    expect(views.length).toBe(5);
+    const [, , , [view, [node]]] = views;
+    expect(view).toEqual({ height: 220, width: 300, x: 340, y: 0 });
+    expect(node).toEqual({});
+  });
 
   test("facet container with specified x", () => {
     const data = [
