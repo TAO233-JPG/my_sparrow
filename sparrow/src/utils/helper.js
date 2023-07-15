@@ -46,6 +46,18 @@ export function lastOf(arr) {
 export function firstOf(array) {
   return array[0];
 }
+
+export function indexOf(array) {
+  return array.map((_, i) => i);
+}
+
+export function map(object, transform = identity) {
+  return Object.entries(object).reduce((obj, [key, value]) => {
+    obj[key] = transform(value, key);
+    return obj;
+  }, {});
+}
+
 export function min(array, accessor) {
   return Math.min(...array.map(accessor));
 }
@@ -79,4 +91,14 @@ export function floor(n, base) {
 }
 export function ceil(n, base) {
   return base * Math.ceil(n / base);
+}
+
+export function assignDefined(target, source) {
+  for (const [key, value] of Object.entries(source)) {
+    if (value !== undefined) target[key] = value;
+  }
+}
+
+export function defined(d) {
+  return d !== undefined && !Number.isNaN(d);
 }

@@ -36,5 +36,7 @@ module.exports = {
     "no-bitwise": 0,
     radix: 0,
     "operator-linebreak": 0,
+    "no-confusing-arrow": 0,
+    indent: 0,
   },
 };

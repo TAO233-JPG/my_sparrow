@@ -5,6 +5,7 @@ import { line } from "./line";
 import { area } from "./area";
 import { rect } from "./rect";
 import { cell } from "./ceil";
+import { interval } from "./interval";
 import { createGemetry } from "./geometry";
 import { createChannel, createChannels } from "./channel";
 
@@ -15,6 +16,7 @@ export {
   area,
   rect,
   cell,
+  interval,
   point,
   createGemetry,
   createChannel,
