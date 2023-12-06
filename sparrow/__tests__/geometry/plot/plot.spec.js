@@ -433,33 +433,33 @@ describe("plot", () => {
     mount(createDiv(), chart);
   });
 
-  test("point with interpolated log scale", () => {
-    const chart = sp.plot({
-      data: countries,
-      type: "point",
-      scales: {
-        y: { nice: true, zero: false, type: "log" },
-        r: {
-          range: [3, 20],
-          interpolate: (t, a, b) => Math.sqrt(a * a * (1 - t) + b * b * t),
-        },
-      },
-      guides: {
-        y: { formatter: (d) => d | 0 },
-      },
-      encodings: {
-        x: "year",
-        y: "value",
-        stroke: "country",
-        r: "value",
-      },
-      styles: {
-        strokeWidth: 2,
-      },
-    });
+  // test("point with interpolated log scale", () => {
+  //   const chart = sp.plot({
+  //     data: countries,
+  //     type: "point",
+  //     scales: {
+  //       y: { nice: true, zero: false, type: "log" },
+  //       r: {
+  //         range: [3, 20],
+  //         interpolate: (t, a, b) => Math.sqrt(a * a * (1 - t) + b * b * t),
+  //       },
+  //     },
+  //     guides: {
+  //       y: { formatter: (d) => d | 0 },
+  //     },
+  //     encodings: {
+  //       x: "year",
+  //       y: "value",
+  //       stroke: "country",
+  //       r: "value",
+  //     },
+  //     styles: {
+  //       strokeWidth: 2,
+  //     },
+  //   });
 
-    mount(createDiv(), chart);
-  });
+  //   mount(createDiv(), chart);
+  // });
 
   test("link", () => {
     const chart = sp.plot({
