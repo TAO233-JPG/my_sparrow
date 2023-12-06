@@ -1,9 +1,14 @@
-import { translate, scale, reflectY, polar as polarT } from "./transform";
-import { curry } from "../utils/helper";
+import { translate, scale, reflectY, polar as polarT } from "./transform.js";
+import { curry } from "../utils/helper.js";
 
 function coordinate(transformOptions, canvasOptions) {
   const { width, height } = canvasOptions;
-  const { innerRadius, outerRadius, startAngle, endAngle } = transformOptions;
+  const {
+    innerRadius = 0,
+    outerRadius = 1,
+    startAngle = -Math.PI / 2,
+    endAngle = (Math.PI / 2) * 3,
+  } = transformOptions;
 
   // 保证最后经过 cartesian 变化之后是一个圆形
   // 需要根据画布宽高去调整
