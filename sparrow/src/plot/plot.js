@@ -27,7 +27,8 @@ export function plot(root) {
   const { width = 640, height = 480, renderer: plugin } = root;
   const renderer = createRenderer(width, height, plugin);
 
-  // 将配置从容器节点流向视图节点
+  // 将配置从容器节点流向视图节点, 将容器的节点同步给视图节点（子节点）
+  // 即将父节点的options，同步给子节点的options
   flow(root);
 
   // 将视图树转换成视图树组

@@ -10,8 +10,8 @@ export function legendSwatches(
   {
     x,
     y,
-    width = 48,
-    marginLeft = 8,
+    width = 64,
+    marginLeft = 6,
     swatchSize = 10,
     fontSize = 10,
     formatter = identity,
