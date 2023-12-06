@@ -13,16 +13,16 @@ export function createAxis(components) {
     {
       domain,
       label,
-      tickCount = 5,
+      tickCount = 10,
       formatter = identity,
       tickLength = 5,
-      fontSize = 12,
+      fontSize = 10,
       grid = false,
       tick = true,
     }
   ) => {
     // 获取 ticks 值
-    const offset = scale.bandWitdh ? scale.bandWitdh() / 2 : 0;
+    const offset = scale.bandWidth ? scale.bandWidth() / 2 : 0;
     const values = scale.ticks ? scale.ticks(tickCount) : domain;
     // 处理一些绘制需要的属性
     const center = coordinate.center();
@@ -38,7 +38,6 @@ export function createAxis(components) {
       start,
       end,
     } = components[type];
-
     // 计算得到刻度真正的坐标和展示的文本
     const ticks = values.map((d) => {
       const [x, y] = coordinate(start(d, scale, offset));
