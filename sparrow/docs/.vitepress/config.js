@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress";
 import { PluginDemo } from "./plugins";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/my_sparrow/',
   title: "VChart",
   description: "一个基于vue3+typescript的uni-app路由库",
   themeConfig: {
