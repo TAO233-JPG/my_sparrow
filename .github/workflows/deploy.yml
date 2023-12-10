@@ -14,7 +14,9 @@ jobs:
         with:
           node-version: 16
       - run: npm i pnpm -g
-      - run: pnpm install
+      - run: |
+          cd ./sparrow 
+          pnpm install
 
       - name: Build
         run: pnpm docs:build
