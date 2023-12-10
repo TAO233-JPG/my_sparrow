@@ -15,11 +15,15 @@ jobs:
           node-version: 16
       - run: npm i pnpm -g
       - run: |
+          pwd
           cd ./sparrow 
+          pwd
           pnpm install --no-frozen-lockfile
 
       - name: Build
-        run: pnpm docs:build
+        run: |
+          pwd
+          pnpm docs:build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
