@@ -15,15 +15,12 @@ jobs:
           node-version: 16
       - run: npm i pnpm -g
       - run: |
-          pwd
           cd ./sparrow 
-      - run: |
-          pwd
           pnpm install --no-frozen-lockfile
 
       - name: Build
         run: |
-          pwd
+          cd ./sparrow 
           pnpm docs:build
 
       - name: Deploy
