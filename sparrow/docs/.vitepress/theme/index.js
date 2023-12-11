@@ -1,13 +1,12 @@
 import Theme from "vitepress/theme";
-const isServer = import.meta.env.PROD
+
+import * as sp from "../../../src/index"
 
 export default {
   ...Theme,
-  async enhanceApp(config) {
-    if (!isServer) {
-      await import("../../../src/index").then((module) => {
-        window && (window.sp = module);
-      });
+  enhanceApp(config) {
+    if (!import.meta.env.SSR) {
+        window && (window.sp = sp);
     }
   },
 };
