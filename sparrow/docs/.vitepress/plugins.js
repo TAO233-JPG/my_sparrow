@@ -51,20 +51,23 @@ export const PluginDemo = (md) => {
         });
         const scripts = transform(codes.script, (content) => {
           content = deleteCommentCodes(content);
+          content = content.replaceAll("\"", "'");
           for (let k in uIdMap) {
             content = content.replaceAll("#" + k, "#" + uIdMap[k]);
           }
           return content;
         });
+        const vH = htmls.join("")
+        
         return `
-        ${htmls.join("")}
-        ${scripts.join("")}
-        <details class="details custom-block"> 
-          <summary>${title}</summary>        
+        <VDemo source="${scripts.join('\n')}"> 
+          ${vH} 
+          <details class="details custom-block"> 
+            <summary>${title}</summary>        
         `;
       }
 
-      return "</details> ";
+      return "</details></VDemo>";
     },
   });
 };
@@ -108,11 +111,9 @@ const generateCode = {
     return `<style>${code}</style>`;
   },
   script(code, transforms) {
-    return `<component is="script" defer> 
-      (()=>{
+    return `
         ${code}
-      })()
-    </component>`;
+    `;
   },
   html(code) {
     return `${code}`;

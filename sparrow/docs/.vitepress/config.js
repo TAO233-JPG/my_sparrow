@@ -46,10 +46,10 @@ export default defineConfig({
   },
 
   transformHtml(code, id, ctx) {
-    code = code.replace(/&gt;/g, ">")
-    code = code.replace(/&quot;/g, "'")
-    code = code.replace(/&lt;/g, "<")
-    code = code.replace(/&amp;/g, "&")
+    // code = code.replace(/&gt;/g, ">")
+    // code = code.replace(/&quot;/g, "'")
+    // code = code.replace(/&lt;/g, "<")
+    // code = code.replace(/&amp;/g, "&")
     return code;
   },
 });
