@@ -108,8 +108,7 @@ const generateCode = {
     return `<style>${code}</style>`;
   },
   script(code, transforms) {
-    return `
-    <component is="script" defer> 
+    return `<component is="script" defer> 
       (()=>{
         ${code}
       })()
